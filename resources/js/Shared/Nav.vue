@@ -1,11 +1,6 @@
-<script>
+<script setup>
 import {Link} from "@inertiajs/vue3";
 import NavLink from "@/Shared/NavLink.vue";
-
-export default {
-    name: "Nav",
-    components: {NavLink, Link}
-}
 </script>
 
 <template>
@@ -32,7 +27,3 @@ export default {
         </ul>
     </nav>
 </template>
-
-<style scoped>
-
-</style>
