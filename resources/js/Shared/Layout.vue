@@ -4,11 +4,16 @@ import {computed} from "vue";
 import {usePage} from "@inertiajs/vue3";
 
 const username = computed(() => {
-    usePage().props.auth.user1.username
+    return usePage().props.auth.user1.username
 })
 </script>
 
 <template>
+    <meta
+        content="Home information"
+        head-key="description"
+        type="description"
+    >
     <section class="p-6 bg-gray-200">
         <header class="flex justify-between">
             <div class="flex items-center">
@@ -22,14 +27,6 @@ const username = computed(() => {
     </section>
     <section class="p-6">
         <div class="max-w-3xl mx-auto">
-            <iframe
-                class="mb-6"
-                frameborder="no"
-                scrolling="no"
-                seamless
-                src="https://player.simplecast.com/fd0bd2ba-c553-466c-a060-b144797ce369?dark=false"
-                width="100%"
-            />
             <slot/>
         </div>
     </section>
