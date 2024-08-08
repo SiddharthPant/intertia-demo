@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
     <Head>
@@ -8,9 +7,8 @@
             content="Home information"
             head-key="description"
             type="description"
-        >
+        />
     </Head>
 
-    <h1 class="text-4xl font-bold">Home</h1>
+    <h1 class="text-3xl">Home</h1>
 </template>
-
