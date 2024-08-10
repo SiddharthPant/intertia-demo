@@ -1,19 +1,18 @@
 <script setup>
-import { reactive } from "vue";
-import { router } from "@inertiajs/vue3";
+import { useForm } from "@inertiajs/vue3";
 
 defineProps({
     errors: Object,
 });
 
-let form = reactive({
+let form = useForm({
     name: "",
     email: "",
     password: "",
 });
 
 let submit = async () => {
-    router.post("/users", form);
+    form.post("/users");
 };
 </script>
 
@@ -38,9 +37,9 @@ let submit = async () => {
                 type="text"
             />
             <div
-                v-if="errors.name"
+                v-if="form.errors.name"
                 class="text-red-500 text-xs mt-1"
-                v-text="errors.name"
+                v-text="form.errors.name"
             ></div>
         </div>
         <div class="mb-6">
@@ -59,9 +58,9 @@ let submit = async () => {
                 type="email"
             />
             <div
-                v-if="errors.email"
+                v-if="form.errors.email"
                 class="text-red-500 text-xs mt-1"
-                v-text="errors.email"
+                v-text="form.errors.email"
             ></div>
         </div>
         <div class="mb-6">
@@ -76,17 +75,17 @@ let submit = async () => {
                 v-model="form.password"
                 class="border border-gray-400 p-2 w-full"
                 name="password"
-                required
                 type="password"
             />
             <div
-                v-if="errors.password"
+                v-if="form.errors.password"
                 class="text-red-500 text-xs mt-1"
-                v-text="errors.password"
+                v-text="form.errors.password"
             ></div>
         </div>
         <div class="mb-6">
             <button
+                :disabled="form.processing"
                 class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
                 type="submit"
             >
