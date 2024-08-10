@@ -1,5 +1,4 @@
 <script setup>
-import {Link} from "@inertiajs/vue3";
 import NavLink from "@/Shared/NavLink.vue";
 </script>
 
@@ -17,12 +16,15 @@ import NavLink from "@/Shared/NavLink.vue";
                 </NavLink>
             </li>
             <li>
-                <NavLink :active="$page.component === 'Settings'" href="/settings">
+                <NavLink
+                    :active="$page.component === 'Settings'"
+                    href="/settings"
+                >
                     Settings
                 </NavLink>
             </li>
             <li>
-                <Link as="button" class="text-blue-500 hover:underline" href="/lgout" method="post">Log Out</Link>
+                <NavLink href="/logout" method="post"> Log Out</NavLink>
             </li>
         </ul>
     </nav>
